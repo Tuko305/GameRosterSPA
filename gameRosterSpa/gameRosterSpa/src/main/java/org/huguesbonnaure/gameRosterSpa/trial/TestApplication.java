@@ -11,7 +11,8 @@ import java.net.URLConnection;
 @SpringBootApplication
 public class TestApplication {
     public static void main(String... args) {
-        //SpringApplication.run(TestApplication.class, args);
+        SpringApplication.run(TestApplication.class, args);
+        /*
         try {
             String name = "Mortiscia";
             String sURL = "https://gameinfo.albiononline.com/api/gameinfo/search?q=Mortiscia";
@@ -40,6 +41,8 @@ public class TestApplication {
         }catch (Exception ex){
             System.out.println("something went wrong");
         }
+
+         */
     }
 }
 
