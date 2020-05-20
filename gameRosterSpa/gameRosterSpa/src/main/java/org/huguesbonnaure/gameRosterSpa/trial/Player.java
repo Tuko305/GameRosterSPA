@@ -13,15 +13,17 @@ public class Player {
     private @Id @GeneratedValue Long id;
     private String name;
     private String charName;
+    private String guildName;
     private int pvpKillFame;
-    private int pvpRatio;
+    private float pvpRatio;
 
     public Player() {}
 
-    public Player(String name, String charName, int pvpKillFame, int pvpRatio) {
+    public Player(String name, String charName, String guildName, int pvpKillFame, float pvpRatio) {
         this.name = name;
         this.charName = charName;
         this.pvpKillFame = pvpKillFame;
         this.pvpRatio = pvpRatio;
+        this.guildName = guildName;
     }
 }

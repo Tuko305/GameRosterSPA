@@ -12,8 +12,8 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(PlayerRepository repository) {
         return args -> {
-            log.info("Preloading " + repository.save(new Player("Bruno Fernandes", "Omened", 0, 0)));
-            log.info("Preloading " + repository.save(new Player("Hugues Bonnaure", "Mortiscia", 10, 2)));
+            log.info("Preloading " + repository.save(new Player("Bruno Fernandes", "Omened", "", 0, 0)));
+            log.info("Preloading " + repository.save(new Player("Hugues Bonnaure", "Mortiscia","", 10, 2)));
         };
     }
 }

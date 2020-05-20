@@ -1,6 +1,14 @@
 package org.huguesbonnaure.gameRosterSpa.trial;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.List;
 
+import com.google.gson.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +35,37 @@ public class PlayerController {
 
     @PostMapping("/players")
     Player newTestEntity(@RequestBody Player newPlayer) {
-        String name = newPlayer.getName();
+        String charName = newPlayer.getCharName();
+        String playerName = newPlayer.getName();
+        String sURL = "https://gameinfo.albiononline.com/api/gameinfo/search?q=";
+        String resultURL = sURL + charName;
+
+        try {
+            // Connect to the URL using java's native library
+            URL url = new URL(resultURL);
+            URLConnection request = url.openConnection();
+            request.connect();
+
+            // Convert to a JSON object to print data
+            JsonObject jsonObject = JsonParser.parseReader(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject(); //May be an array, may be an object.
+            JsonArray players = jsonObject.getAsJsonArray("players");
+            String player = players.toString();
+            String p = player.substring(1, player.length()-1);
+            JsonObject playerObject = new Gson().fromJson(p, JsonObject.class);
+            System.out.println(playerObject);
+
+            JsonElement guildName = playerObject.get("GuildName");
+            JsonElement pvpKillFame = playerObject.get("KillFame");
+            JsonElement pvpRatio = playerObject.get("FameRatio");
+
+
+            newPlayer.setGuildName(guildName.getAsString());
+            newPlayer.setPvpKillFame(pvpKillFame.getAsInt());
+            newPlayer.setPvpRatio(pvpRatio.getAsFloat());
+
+        }catch (Exception ex){
+            System.out.println("something went wrong");
+        }
         return repository.save(newPlayer);
     }
 
