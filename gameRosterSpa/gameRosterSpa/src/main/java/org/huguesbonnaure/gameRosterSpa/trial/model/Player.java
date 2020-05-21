@@ -10,8 +10,8 @@ import javax.persistence.Id;
 @Entity
 public class Player {
 
-    private @Id @GeneratedValue Long id;
-    private String name;
+    //private @Id @GeneratedValue Long id;
+    private @Id String name;
     private String charName;
     private String guildName;
     private int pvpKillFame;

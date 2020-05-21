@@ -1,7 +1,7 @@
 package org.huguesbonnaure.gameRosterSpa.trial.controller;
 
 public class PlayerNotFoundException extends RuntimeException {
-    PlayerNotFoundException(Long id) {
+    PlayerNotFoundException(String id) {
         super("Could not find player " + id);
     }
 }

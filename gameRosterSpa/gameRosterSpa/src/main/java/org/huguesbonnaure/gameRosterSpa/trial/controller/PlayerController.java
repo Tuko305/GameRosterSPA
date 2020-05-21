@@ -65,17 +65,17 @@ public class PlayerController {
 
     // Single item
 
-    @GetMapping("/players/{id}")
-    Player one(@PathVariable Long id) {
+    @GetMapping("/players/{name}")
+    Player one(@PathVariable String name) {
 
-        return repository.findById(id)
-                .orElseThrow(() -> new PlayerNotFoundException(id));
+        return repository.findById(name)
+                .orElseThrow(() -> new PlayerNotFoundException(name));
     }
 
-    @PutMapping("/players/{id}")
-    Player replacePlayer(@RequestBody Player newPlayer, @PathVariable Long id) {
+    @PutMapping("/players/{name}")
+    Player replacePlayer(@RequestBody Player newPlayer, @PathVariable String name) {
 
-        return repository.findById(id)
+        return repository.findById(name)
                 .map(player -> {
                     player.setName(newPlayer.getName());
                     player.setCharName(newPlayer.getCharName());
@@ -84,13 +84,13 @@ public class PlayerController {
                     return repository.save(player);
                 })
                 .orElseGet(() -> {
-                    newPlayer.setId(id);
+                    //newPlayer.setId(id);
                     return repository.save(newPlayer);
                 });
     }
 
-    @DeleteMapping("/players/{id}")
-    void deleteEmployee(@PathVariable Long id) {
-        repository.deleteById(id);
+    @DeleteMapping("/players/{name}")
+    void deleteEmployee(@PathVariable String name) {
+        repository.deleteById(name);
     }
 }
