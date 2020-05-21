@@ -1,5 +1,7 @@
-import renderRoster from '../views/roster.js'
+import getPlayerList from '../services/api.js';
+import renderRoster from '../views/roster.js';
 
 export default function(){
-    renderRoster();
+    getPlayerList().then(renderRoster);
+     
 };

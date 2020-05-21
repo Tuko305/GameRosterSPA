@@ -1,5 +1,6 @@
 import roster from './controllers/roster.js';
 import renderPLayer from './controllers/renderPlayer.js';
+import renderPost from './controllers/renderPost.js';
 
 export default {
     roster: {
@@ -11,6 +12,11 @@ export default {
         hash: '#player',
         init: renderPLayer,
     },
-    
+
+    post: {
+        hash: '#post',
+        init: renderPost
+    },
+
 
 };
