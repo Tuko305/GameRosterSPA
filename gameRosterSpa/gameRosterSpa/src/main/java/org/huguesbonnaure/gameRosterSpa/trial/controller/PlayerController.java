@@ -1,14 +1,13 @@
-package org.huguesbonnaure.gameRosterSpa.trial;
+package org.huguesbonnaure.gameRosterSpa.trial.controller;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 
 import com.google.gson.*;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.huguesbonnaure.gameRosterSpa.trial.model.Player;
+import org.huguesbonnaure.gameRosterSpa.trial.persistence.PlayerRepository;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")

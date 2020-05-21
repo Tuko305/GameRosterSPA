@@ -1,4 +1,4 @@
-package org.huguesbonnaure.gameRosterSpa.trial;
+package org.huguesbonnaure.gameRosterSpa.trial.model;
 
 import lombok.Data;
 

@@ -1,4 +1,5 @@
-package org.huguesbonnaure.gameRosterSpa.trial;
+package org.huguesbonnaure.gameRosterSpa.trial.controller;
+import org.huguesbonnaure.gameRosterSpa.trial.controller.PlayerNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

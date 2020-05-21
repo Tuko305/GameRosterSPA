@@ -1,6 +1,7 @@
-package org.huguesbonnaure.gameRosterSpa.trial;
+package org.huguesbonnaure.gameRosterSpa.trial.persistence;
 import lombok.extern.slf4j.Slf4j;
 
+import org.huguesbonnaure.gameRosterSpa.trial.model.Player;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,8 +13,6 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(PlayerRepository repository) {
         return args -> {
-            log.info("Preloading " + repository.save(new Player("Bruno Fernandes", "Omened", "", 0, 0)));
-            log.info("Preloading " + repository.save(new Player("Hugues Bonnaure", "Mortiscia","", 10, 2)));
         };
     }
 }
