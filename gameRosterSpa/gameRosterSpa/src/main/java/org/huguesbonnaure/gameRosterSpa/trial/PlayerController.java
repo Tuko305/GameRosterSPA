@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*")
 @RestController
 public class PlayerController {
     private final PlayerRepository repository;
@@ -21,7 +21,6 @@ public class PlayerController {
     }
 
     // Aggregate root
-    @CrossOrigin(origins = "*")
     @GetMapping("/players")
     List<Player> all() {
         return repository.findAll();
@@ -45,7 +44,9 @@ public class PlayerController {
             JsonArray players = jsonObject.getAsJsonArray("players");
             String player = players.toString();
             String p = player.substring(1, player.length()-1);
-            JsonObject playerObject = new Gson().fromJson(p, JsonObject.class);
+            String p2 = p.split(",\"gvgWon")[0]+ "}";
+
+            JsonObject playerObject = new Gson().fromJson(p2, JsonObject.class);
             System.out.println(playerObject);
 
             JsonElement guildName = playerObject.get("GuildName");
