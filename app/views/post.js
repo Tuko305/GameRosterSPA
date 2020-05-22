@@ -1,4 +1,4 @@
-export default function renderPlayer({ name, charName, guildName, pvpKillFame, pvpRatio}){
+export default function renderPost({ name, charName, guildName, pvpKillFame, pvpRatio}){
    window.location.hash = "#roster";
     /*$('#app')
         .empty()

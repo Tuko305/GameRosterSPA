@@ -1,5 +1,5 @@
 import roster from './controllers/roster.js';
-import renderPLayer from './controllers/renderPlayer.js';
+import renderPlayer from './controllers/renderPlayer.js';
 import renderPost from './controllers/renderPost.js';
 
 export default {
@@ -10,7 +10,7 @@ export default {
     
     player: {
         hash: '#player',
-        init: renderPLayer,
+        init: renderPlayer,
     },
 
     post: {

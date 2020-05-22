@@ -45,6 +45,21 @@ export function postPlayer(playerName, charName){
         });
     });
 }
+
+export function deletePlayer(playerName){
+    return new Promise(function (resolve,reject){
+        $.ajax({
+            url: `http://localhost:8080/players/${playerName}`,
+            type: 'DELETE',
+            success: function (resultes){
+                resolve(results);
+            },
+            error: function(request, error){
+                reject(request, error);
+            }
+        });
+    });
+}
     
     
 
